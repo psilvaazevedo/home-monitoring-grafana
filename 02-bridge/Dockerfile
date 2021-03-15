@@ -1,10 +1,4 @@
-FROM python:3.7-alpine
-
-LABEL maintainer="Nilhcem" \
-      description="MQTT to InfluxDB Bridge"
-
-COPY requirements.txt /
-RUN pip install -r /requirements.txt
+FROM psazevedo/mqttbridge
 
 COPY . /app
 WORKDIR /app

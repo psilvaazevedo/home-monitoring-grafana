@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mosquitto:
-    image: eclipse-mosquitto:1.6.9
+    image: eclipse-mosquitto:latest
     container_name: mosquitto
     ports:
       - 1883:1883
@@ -23,7 +23,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana:6.7.3
+    image: grafana/grafana:latest
     container_name: grafana
     depends_on:
       - influxdb
@@ -35,7 +35,8 @@ services:
 
   mqttbridge:
     build: ./02-bridge
-    image: nilhcem/mqttbridge
+    image: psazevedo/mqttbridge
+    privileged: true
     container_name: mqttbridge
     depends_on:
       - mosquitto
