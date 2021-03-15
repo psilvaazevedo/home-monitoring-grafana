@@ -5,7 +5,7 @@ services:
     image: eclipse-mosquitto:latest
     container_name: mosquitto
     ports:
-      - 1883:1883
+            - 1883:1883
     volumes:
       - ./01-mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - ./01-mosquitto/users:/mosquitto/config/users
@@ -28,7 +28,7 @@ services:
     depends_on:
       - influxdb
     ports:
-      - 3000:3000
+            - 3000:300
     volumes:
       - ${DATA_DIR}/grafana:/var/lib/grafana
     restart: always
